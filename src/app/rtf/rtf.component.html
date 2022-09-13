@@ -1,0 +1,207 @@
+<!-- 
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  
+    <p>
+      <label for="firstname">First Name </label>
+      <input type="text" id="firstname" name="firstname" formControlName="firstname">
+    </p>
+   
+    <p>
+      <label for="lastname">Last Name </label>
+      <input type="text" id="lastname" name="lastname" formControlName="lastname">
+    </p>
+   
+    <p>
+      <label for="email">Email </label>
+      <input type="text" id="email" name="email" formControlName="email">
+    </p>
+   
+    <p>
+      <label for="gender">Geneder </label>
+      <input type="radio" value="male" id="gender" name="gender" formControlName="gender"> Male
+      <input type="radio" value="female" id="gender" name="gender" formControlName="gender"> Female
+    </p>
+   
+    <p>
+      <label for="isMarried">Married </label>
+      <input type="checkbox" id="isMarried" name="isMarried" formControlName="isMarried">
+    </p>
+   
+   
+    <p>
+      <label for="country">country </label>
+      <select id="country" name="country" formControlName="country">
+        <option value="1">India</option>
+        <option value="2">USA</option>
+        <option value="3">England</option>
+        <option value="4">Singapore</option>
+      </select>
+    </p>
+   
+   
+    <p>
+      <button type="submit">Submit</button>
+    </p>
+   </mat-grid-list>
+  </form> -->
+<!-- 
+  <form [formGroup]="contactForm" class="myForm" (ngSubmit)="onSubmit()">
+    <mat-grid-list cols="2" rowHeight="400px">
+     <mat-grid-tile>
+        <div class="empControls">
+            <input type="hidden" formControlName="$key">
+            <mat-form-field appearance="outline" color="warn">
+                <mat-label>Full Name:</mat-label>
+                <input matInput formControlName="fullName" required>
+                <mat-error>This field Is Required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" color="warn">
+                <mat-label>Email:</mat-label>
+                <input matInput formControlName="email">
+                <mat-error>Invali Email adress</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" color="warn">
+                <mat-label>Mobile:</mat-label>
+                <input matInput formControlName="mobile" required>
+                 <mat-error *ngIf="contactForm.form.controls['mobile'].errors?.['required']">This field Is Required</mat-error>
+                <mat-error *ngIf="empService.form.controls['mobile'].errors?.['minLength']">Min .10 characters Required</mat-error> -->
+            <!-- </mat-form-field>
+
+            <mat-form-field appearance="outline" color="warn">
+                <mat-label>City Name:</mat-label>
+                <input matInput formControlName="city">
+            </mat-form-field>
+        </div>
+     </mat-grid-tile>
+     <mat-grid-tile>
+        <div class="empControls">
+            <div class="myPadding">
+                <mat-radio-group formControlName="gender" color="primary">
+                    <mat-radio-button value ="1">Male</mat-radio-button>
+                    <mat-radio-button value ="2">Female</mat-radio-button>
+                    <mat-radio-button value ="3">Other</mat-radio-button>
+                </mat-radio-group>
+            </div> -->
+
+            <!-- <mat-form-field appearance="outline" color="primary">
+                <mat-label>Department</mat-label>
+                <mat-select formControlName="department">
+                <mat-option>None</mat-option>
+                <ng-container *ngFor="let dept of department">
+                    <mat-option value="{{dept.id}}">{{dept.name}}
+                    </mat-option>
+                </ng-container>
+            </mat-select>
+            </mat-form-field> -->
+<!-- 
+             <mat-form-field appearance="outline">
+                <mat-label>Hire Date</mat-label>
+                <input matInput formControlName="hireDate"
+                [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker">
+                </mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+             </mat-form-field>
+
+
+           <div class="myPadding">
+            <mat-checkbox formControlName="isPermanent">
+                Permenent Employee
+            </mat-checkbox>
+           </div>
+             
+
+           <div class="buttonRow">
+            <button mat-raised-button [disabled]="contactForm.invalid" color="primary" type="submit">Submit
+            </button>
+            <button mat-raised-button color="warn" type="submit">Clear
+            </button>
+           </div>
+
+        </div>
+     </mat-grid-tile>
+    </mat-grid-list>
+</form> -->
+
+<form [formGroup]="form" class="myForm">
+  <mat-grid-list cols="2" rowHeight="400px">
+   <mat-grid-tile>
+      <div class="empControls">
+          <input matInput formControlName="$key">
+          <mat-form-field appearance="outline" color="warn">
+              <mat-label>Full Name:</mat-label>
+              <input matInput formControlName="fullName" required>
+              <mat-error>This field Is Required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" color="warn">
+              <mat-label>Email:</mat-label>
+              <input matInput formControlName="email">
+              <mat-error>Invali Email adress</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" color="warn">
+              <mat-label>Mobile:</mat-label>
+              <input matInput formControlName="mobile" required>
+              <mat-error *ngIf="form.controls['mobile'].errors?.['required']">This field Is Required</mat-error>
+              <mat-error *ngIf="form.controls['mobile'].errors?.['minLength']">Min .10 characters Required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" color="warn">
+              <mat-label>City Name:</mat-label>
+              <input matInput formControlName="city">
+          </mat-form-field>
+      </div>
+   </mat-grid-tile>
+   <mat-grid-tile>
+      <div class="empControls">
+          <div class="myPadding">
+              <mat-radio-group formControlName="gender" color="primary">
+                  <mat-radio-button value ="1">Male</mat-radio-button>
+                  <mat-radio-button value ="2">Female</mat-radio-button>
+                  <mat-radio-button value ="3">Other</mat-radio-button>
+              </mat-radio-group>
+          </div>
+
+          <mat-form-field appearance="outline" color="primary">
+              <mat-label>Department</mat-label>
+              <mat-select formControlName="department">
+              <mat-option>None</mat-option>
+              <ng-container *ngFor="let dept of departments">
+                  <mat-option value="{{dept.id}}">{{dept.name}}
+                  </mat-option>
+              </ng-container>
+          </mat-select>
+          </mat-form-field>
+
+           <mat-form-field appearance="outline">
+              <mat-label>Hire Date</mat-label>
+              <input matInput formControlName="hireDate"
+              [matDatepicker]="picker">
+              <mat-datepicker-toggle matSuffix [for]="picker">
+              </mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+           </mat-form-field>
+
+
+         <div class="myPadding">
+          <mat-checkbox formControlName="isPermanent">
+              Permenent Employee
+          </mat-checkbox>
+         </div>
+           
+
+         <div class="buttonRow">
+          <button mat-raised-button [disabled]="form.invalid" color="primary" type="submit" (click)="onSubmit()">Submit
+          </button>
+          <button mat-raised-button color="warn" type="submit">Clear
+          </button>
+         </div>
+
+      </div>
+   </mat-grid-tile>
+  </mat-grid-list>
+</form>
+<p>{{form.value.fullName}}</p>
